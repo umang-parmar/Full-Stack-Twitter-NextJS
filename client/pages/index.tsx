@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import { BiHash, BiHomeCircle, BiLogoTwitter, BiUnderline, BiUser } from "react-icons/bi"
+import React from "react";
+import { BsBack, BsBell, BsBookmark, BsEnvelope } from "react-icons/bs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,68 +14,67 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+interface TwitterSidebarButton {
+  title: string;
+  icon: React.ReactNode;
+}
+
+const sidebarMenuItems: TwitterSidebarButton[] = [
+  {
+    title: 'Home',
+    icon: <BiHomeCircle />
+  },
+  {
+     title : "Explore",
+     icon: <BiHash/>
+  },
+  {
+     title : "Notifications",
+     icon: <BsBell/>
+  },
+  {
+     title : "Messages",
+     icon: <BsEnvelope/>
+  },
+  {
+     title : "Bookmarks",
+     icon: <BsBookmark/>
+  },
+  {
+     title : "Profile",
+     icon: <BiUser/>
+  }
+]
+
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      <div className="grid grid-cols-12 h-screen w-screen px-56">
+        <div className="col-span-3 pt-8">
+          <div className="text-4xl h-fit w-fit p-4 hover:bg-gray-600 rounded-full p-2 cursor-pointer transition-all">
+            <BiLogoTwitter />
+          </div>
+          <div className="mt-4 text-2xl pr-4 font-semibold">
+            <ul>
+              {sidebarMenuItems.map(i =>
+                <li 
+                 className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit cursor-pointer mt-2"
+                 key={i.title}
+                >
+                  <span>{i.icon}</span>
+                  <span>{i.title}</span>
+                </li>)}
+            </ul>
+            <div className=" mt-5 pr-20">
+              <button className="bg-[#1d9bf0] text-lg p-4 rounded-full w-full">
+               Tweet
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+        <div className="col-span-6 border-l-2 border-r-2 border-gray-500 "></div>
+        <div className="col-span-3"></div>
+      </div>
     </div>
   );
 }
