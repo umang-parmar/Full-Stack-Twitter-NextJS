@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
-import { BiHash, BiHomeCircle, BiLogoTwitter, BiUnderline, BiUser } from "react-icons/bi"
+import { BiHash, BiHomeCircle, BiLogoTwitter, BiMoney, BiUnderline, BiUser } from "react-icons/bi"
 import React from "react";
 import { BsBack, BsBell, BsBookmark, BsEnvelope } from "react-icons/bs";
+import FeedCard from "@/components/Feedcard";
+import { SiOutline } from "react-icons/si";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,9 +43,17 @@ const sidebarMenuItems: TwitterSidebarButton[] = [
      icon: <BsBookmark/>
   },
   {
+     title : "Twitter Blue",
+     icon: <BiMoney/>
+  },
+  {
      title : "Profile",
      icon: <BiUser/>
-  }
+  },       
+  {
+     title : "More Options",
+     icon: <SiOutline/>
+  },
 ]
 
 export default function Home() {
@@ -72,7 +82,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-span-6 border-l-2 border-r-2 border-gray-500 "></div>
+        <div className="col-span-5 border-l-2 border-r-2 h-screen overflow-scroll border-gray-500 ">
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+          <FeedCard/>
+        </div>
         <div className="col-span-3"></div>
       </div>
     </div>
