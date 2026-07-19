@@ -2,6 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@as-integrations/express5';
 import express from 'express';
 import bodyParser from 'body-parser';
+import { prismaClient } from './clients/db/index.js';
 
 export async function initServer() {
     const app = express();

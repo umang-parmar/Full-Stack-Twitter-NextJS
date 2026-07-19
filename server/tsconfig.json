@@ -1,6 +1,6 @@
-{
-  // Visit https://aka.ms/tsconfig to read more about this file
-  "compilerOptions": {
+{  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions":
+  {
     // File Layout
     "rootDir": "./src",  //manuallly add : every our written TS code compiled down to JS inside Build folder
      "outDir": "./build", //manually add : Compile only code inside the src folder
@@ -9,7 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
-"types": ["node"] ,   // For nodejs:
+    "types": ["node"] ,   // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
